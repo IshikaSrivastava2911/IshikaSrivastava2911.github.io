@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ishika's Portfolio</title>
         <link href="./styles/home.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Mono&display=swap" rel="stylesheet">
@@ -10,11 +10,11 @@
     </head>
     <body id="body">
         <!--Navigation bar-->
-        <header>
-            <div class="name">
+        <nav class="nav">
+            <div class="logo">
                 <a href="index.html">Ishika Srivastava</a>
             </div>
-            <div>
+            <div class="nav-items">
                 <ul>
                     <li class="li"><a href="./index.html">Home</a></li>
                     <li class="li"><a href="./about-me.html">About Me</a></li>
@@ -22,14 +22,14 @@
                     <li class="li"><a href="./my-gallary.html">My Gallery</a></li>
                 </ul>
             </div>      
-        </header>
+        </nav>
 
         <!--Home Section-->
-        <main id="home">
+        <main id="home" class="home">
 
             <div class="banner-left">
                 <h2>Hello and Welcome!</h2>
-                <h1>I am Ishika Srivastava</h1>
+                <h1>I am Ishika<br> Srivastava</h1>
                 <h6>Software Development Intern @ Zemosolabs Technology</h6>
             </div>
             <div class="banner-right">
@@ -38,9 +38,8 @@
 
         </main>
         <!--Footer-->
-        <footer>
-            <h4>Thank You for visiting!</h4>
-            
+        <footer class="footer">
+            <h4 style="text-align: center;">Thank You for visiting!</h4>
         </footer>
     </body>
 </html>
