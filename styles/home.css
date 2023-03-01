@@ -165,15 +165,20 @@ section{
 .img{
     width:200px;
     height:auto;
+    
+    text-align: center;
+    border: 1px solid black;
 }
 .img:hover{
     width: 350px;
 }
 .imageGallary{
-    flex-wrap: wrap;
+    
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:20px;
 
 
 }
