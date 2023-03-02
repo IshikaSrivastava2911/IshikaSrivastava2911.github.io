@@ -149,9 +149,9 @@ body{
 @media screen and (max-width:900px) {
 
     .uname, .ta,.num, .email, .submit{
-   height: auto;
+   height: 40px;
     margin: auto;
-    width:200px;
+    width:300px;
 }
 }
 .lab{
