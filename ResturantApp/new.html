@@ -1,0 +1,126 @@
+<html>
+    <body>
+<section class="table">
+            <h3 >Table</h3>
+            <input type="text" class="table-search" id="table-search" placeholder="Search Table">
+            <ul class="table-list">
+            <li class="table-1 eachtable" id="table-1">
+                Table-1
+                <span class="bottom">
+                    Rs: 
+                <span class="price">
+                    
+                </span>
+                  | Total:
+                <span class="total">
+
+                </span>
+
+            </span>
+            </li>
+            <li class="table-2 eachtable" id="table-2">
+                Table-2
+                <span class="bottom">
+                    Rs: 
+                <span class="price">
+                    
+                </span>
+                  | Total:
+                <span class="total">
+
+                </span>
+
+            </span>
+            </li>
+            <li class="table-3 eachtable" id="table-3">
+                Table-3
+                <span class="bottom">
+                    Rs: 
+                <span class="price">
+                    
+                </span>
+                  | Total:
+                <span class="total">
+
+                </span>
+
+            </span>
+            </li>
+            <li class="table-4 eachtable" id="table-4">
+                Table-4
+                <span class="bottom">
+                    Rs: 
+                <span class="price">
+                    
+                </span>
+                  | Total:
+                <span class="total">
+
+                </span>
+
+            </span>
+            </li>
+            <li class="table-5 eachtable" id="table-5">
+                Table-5
+                <span class="bottom">
+                    Rs: 
+                <span class="price">
+                    
+                </span>
+                  | Total:
+                <span class="total">
+
+                </span>
+
+                </span>
+            </li>
+            <li class="not-found-table eachtable"
+            style="align-items: center; box-shadow: none; display: none;" id="not-found-table">
+                Not Found!!
+            </li>
+        </ul>
+</section>
+
+<script>
+const tableSearch =() => {
+    //input item
+    let search= document.getElementById('table-search')
+    search = search.value.toLowerCase();
+    // let ul = document.getElementsByClass('table-list');
+    //getting table details
+    let tableItem = document.getElementsByClassName('eachtable')[0];
+    
+
+    //if search box is not empty
+    if(search){
+
+        let tableFound= false;
+
+        for( var i =0; i<tableItem.length; i++){
+            const tableID = tableItem[i].id;
+
+            if (tableID == search) {
+                tableItem[i].style.display = "block";
+                tableFound = true;
+            } else {
+                tableItem[i].style.display = "none";
+            }
+        }
+        if(!tableFound){
+            document.querySelector(".not-found-table").style.display="block";
+        }
+        else{
+            document.querySelector(".not-found-table").style.display="none";
+        }
+    }
+    else{
+        document.querySelector(".not-found-table").style.display="none";
+        for (var i=0; i<tableItem.length; i++){
+            tableItem[i].style.display="block";
+        }
+    }
+
+}
+</script>
+</body>
+        </html>
