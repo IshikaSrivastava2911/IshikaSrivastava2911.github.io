@@ -57,7 +57,9 @@ const tableDisplay=()=>{
         })
 
         //on click, openBill function is invoked
-        eachTableNumber.addEventListener('click',openBill)
+        eachTableNumber.addEventListener('click',(event)=>{
+            openBill(event);
+        })
 
 
 
@@ -304,17 +306,17 @@ const drop =(e)=>{
     
     // console.log("itemid: "+item_id);
     // calling upateItemList funtion
-    updateMenuItemOnTable(tableid.slice(5),menus[item_id-1].menu_item,menus[item_id-1].price)
+    addMenuItemOnTable(tableid.slice(5),menus[item_id-1].menu_item,menus[item_id-1].price)
     // console.log("tablesliceid"+tableid.slice(5));
     // calling updateTable function
-    updateTable(tableid.slice(5));
+    itemAddedinTable(tableid.slice(5));
 
 
 };
 
 
 //menu item on table updation
-const updateMenuItemOnTable =(t_id, name, price)=>{
+const addMenuItemOnTable =(t_id, name, price)=>{
 
     // console.log(t_id + name + price);
     let itemExists =false;
@@ -350,7 +352,7 @@ const updateMenuItemOnTable =(t_id, name, price)=>{
 
 
 //update the total amount and total number of items on each table
-const updateTable =(t_id) =>{
+const itemAddedinTable =(t_id) =>{
 
     let itemAmount = 0;
     let itemCount =0;
@@ -364,18 +366,6 @@ const updateTable =(t_id) =>{
         
     }
 
-    // for(let i=0; i<tables.length;i++){
-    //     document.getElementById(`
-    //     priceT${i+1}`).textContent =`Rs. ${itemAmount}`;
-    //     document.getElementById(`TotalItems${i+1}`).textContent = `Total Items: ${itemCount}`;
-    // }
-
-    // let T = document.getElementById(`
-    // priceT${i+1}`);
-    // let am = document.getElementById(`TotalForTable${i+1}`);
-
-    //error
-
     let totalPrice = document.querySelector(`#priceT${t_id}`);
     
     let totaltblItems = document.querySelector(`#TotalItems${t_id}`);
@@ -384,30 +374,28 @@ const updateTable =(t_id) =>{
     totalPrice.innerHTML = `Rs. ${itemAmount} |`;
     totaltblItems.innerHTML = `Total Items: ${itemCount}`;
 
-    console.log(totalPrice);
-    console.log(totaltblItems);
+    // console.log(totalPrice);
+    // console.log(totaltblItems);
 
 
 
-    console.log("Print if table updates")
-    console.log("UT" +itemCount);
-    console.log("UT"+ itemAmount);
-    console.log("updateTable");
+    // console.log("Print if table updates")
+    // console.log("UT" +itemCount);
+    // console.log("UT"+ itemAmount);
+    // console.log("updateTable");
 
 
-    // document.getElementById(`
-    //     priceT${t_id}`).innerHTML =`Rs. ${itemAmount}`;
-
-    // document.getElementById(`TotalItems${t_id}`).innerHTML = `Total Items: ${itemCount}`;
 
 };
 
-
-
-
-
-
-
+// const itemRemove = (_id,index ) => {
+//         tables[_id-1].itemList[index] = {
+//             name : "",
+//             cost : 0,
+//             count : 0,
+//         };
+//         Billprinting(_id);
+// }
 
 
 
@@ -423,11 +411,12 @@ var closeBtn = document.getElementById('closeBtn');
 
 
 //function to open modal
-function openBill(){
+const openBill=(e)=>{
     modal.style.display='block';
     //call
     let updtID= e.target.id;
-    updateBill(updtID.slice(5));
+    // console.log(updtID);
+    Billprinting(updtID.slice(5));
 }
 
 //function to close modal
@@ -451,99 +440,47 @@ window.addEventListener('click', clickOutside);
 
 
 
-
-
-
-
-
 // // this function is used to update the bill
-// const updateBill =(_id) => {
-//     // accessing table element and adding innerHTML
-//     document.getElementById('popTable').innerHTML=
-//     ` 
-//         <tr >
-//             <th>S No.</th>
-//             <th>Item</th>
-//             <th>Price</th>
-//             <th>Quantity</th>
-//             <th>Delete</th>
-//         </tr>
-//     `
-//     let mycount=0;//it will handle serial number
-//     for(let i=0;i<tables[_id-1].itemList.length;i++){
+const Billprinting =(t_id) => {
+    // console.log("bill printing");
+
+    let itemNum=1;
     
-//         if(tables[_id-1].itemList[i].count!=0){
-//             document.getElementById('popTable').innerHTML+=
-//             `
-//             <tr>
-//                 <td> ${++mycount} </td>
-//                 <td>${tables[_id-1].itemList[i].name}</td>
-//                 <td>${tables[_id-1].itemList[i].cost} Rs.</td>
-//                 <td><input type='number' min='1' max='5' value = '${tables[_id-1].itemList[i].count}' onchange='updateValue(${_id},${i},this)' ></td>
-//                 <td>
-//                     <button class="cutTable" onclick="deleteItem(${_id},${i})" > 
-//                         <i class="fa fa-trash-o"></i>
-//                     </button>
-//                 </td>
-//             </tr>
-//             `
-//         }
+    for(let i=0;i<tables[t_id-1].itemList.length;i++){
+    
+        if(tables[t_id-1].itemList[i].count!=0){
+
+            document.getElementById('popTable').innerHTML += `<tr>
+            <td>${itemNum++}</td>
+
+            <td>${tables[t_id-1].itemList[i].name}</td>
+
+            <td>${tables[t_id-1].itemList[i].price}</td>
+
+            
+            </tr>`;
+            let tBillPrice = document.querySelector(`#priceT${t_id}`).innerHTML; 
+
+            document.getElementById('grandTotal').innerHTML= `Total Bill: ${tBillPrice}`;
         
-//     }
-//     let total =0;//handle total amount of that table
-//     for(let i=0;i<tables[_id-1].itemList.length;i++){
-//         total += (tables[_id-1].itemList[i].count * tables[_id-1].itemList[i].cost);
-//     }
-//     document.getElementById('displaytotal').innerHTML = total;
-//     // calling update table after update bill
-//     updateTable(_id);
-// }
-
-// // this function is used to generate bill
-// const generateBill = (e) => {
-//     // getting total amount 
-//     const toatlVal = e.target.parentNode.querySelector('#displaytotal').innerText
-
-//     // asking for feedback
-//     let feedback = alert(  
-//     `
-//     Your total cost is ${toatlVal} Rs.
-//     `
-//     );
-
-//     // setting the itemList of that table with free array
-//     tables[_id-1].itemList=[];
-//     document.getElementById(`table${_id}amount`).innerHTML=`Rs. 0 | `;
-//     document.getElementById(`table${_id}items`).innerHTML=`items: 0`;
-//     // calling updateBill function
-//     updateBill(_id);
-// }
+            // <td><button class="itemRemove" onclick="itemRemove(${t_id},${i})">&times;</button></td>
+        }
+        
+    }
+    
+}
 
 
-// // this will call when we update number of items using input type number
-// const updateValue = (_id,index,event) => {    
-//     tables[_id-1].itemList[index].count = parseInt(event.value);
-//     updateBill(_id);
-// }
+const billBtn = document.getElementById('Bill-btn');
+billBtn.addEventListener('click', (event)=>{
+    generateBill(event);
+});
 
-// // used when we have to delete that item
-// const deleteItem = (_id,index ) => {
-//     tables[_id-1].itemList[index] = {
-//         name : "",
-//         cost : 0,
-//         count : 0,
-//     };
-//     updateBill(_id);
-// }
+const generateBill=(e)=>{
+    const grndtotal= document.getElementById('grandTotal').innerHTML;
+    alert("Your Total Bill is: "+ grndtotal);
+}
 
-
-
-// // function generateBill(){
-// //     alert("Your Total Bill is: ");
-// // }
-
-// // const billBtn = document.getElementById('Bill-Btn');
-// // billBtn.addEventListener('click', generateBill);
 
 
 

@@ -121,17 +121,20 @@
                     <h4>Order Details</h4>
                 </div>
                 <div class="Bill-Body">
-                    <table border="1" class="popTable">
-                        <!-- <tr>
-                            <th class="sNo">S.No.</th>
-                            <th class="popItem">Item</th>
-                            <th class="popPrice">Price</th>
-                        </tr> -->
+                    <table border="1" class="popTable" id="popTable">
+                        <tr >
+                            <th>S No.</th>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <!-- <th>Delete</th> -->
+                        </tr>
                         
                     </table>
+            
                 </div>
                 <div class="Bill-Footer">
-                    <button class="Bill-Btn" id="Bill-btn" onclick="generateBill()" >Generate Bill</button>    
+                    <span class="grandTotal" id="grandTotal"></span>
+                    <button class="Bill-Btn" id="Bill-btn" >Generate Bill</button>    
                 </div>
                 
             </div>
