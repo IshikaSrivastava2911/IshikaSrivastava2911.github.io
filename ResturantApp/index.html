@@ -6,7 +6,7 @@
         <title>Resturant App</title>
         <link href="./rest.css" rel="stylesheet">
     </head>
-    <body class="body">
+    <body class="body" onload="tableDisplay();menuDisplay();">
         <section class="table">
             <h3 >Table</h3>
             <input type="text" class="table-search" id="table-search" placeholder="Search Table" onkeyup="tableSearch()">
@@ -121,14 +121,17 @@
                     <h4>Order Details</h4>
                 </div>
                 <div class="Bill-Body">
-                    <table border="1">
-                        <tr>
-                            <th>S.No.</th>
-                            <th>Item</th>
-                            <th>Price</th>
-                        </tr>
+                    <table border="1" class="popTable">
+                        <!-- <tr>
+                            <th class="sNo">S.No.</th>
+                            <th class="popItem">Item</th>
+                            <th class="popPrice">Price</th>
+                        </tr> -->
                         
                     </table>
+                </div>
+                <div class="Bill-Footer">
+                    <button class="Bill-Btn" id="Bill-btn" onclick="generateBill()" >Generate Bill</button>    
                 </div>
                 
             </div>
