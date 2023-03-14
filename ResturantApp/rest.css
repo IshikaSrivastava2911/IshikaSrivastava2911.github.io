@@ -65,10 +65,22 @@ h3{
     padding-left: 1%;
     /* padding-top: 1%; */
     /* background-color: rgb(247, 247, 205); */
-    width: 90%;
-    height: 8%;
+    width: 100%;
+    height: 12%;
     /* border: 0.5px  grey; */
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+@media screen and (max-width:500px) {
+    .eachtable{
+        height: 15%;
+    }
+    
+}
+
+
+.total, .price{
+    font-size: medium;
 }
 .menu-list{
     display: flex;
@@ -101,11 +113,13 @@ h3{
 
 }
 .item-price, .item-cate{
-    font-size: small;
+    font-size: medium;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
 }
 
+
+/* pop background */
 .BillingPop{
     display:none;
     position: fixed;
@@ -119,9 +133,10 @@ h3{
 }
 .BillingItem{
     background-color: #f4f4f4;
-    margin: 20% auto;
+    margin: 10% auto;
     /* padding: 20px; */
-    width: 70%;
+    width: 50%;
+    height: 50%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17);
     animation-name: modalopen;
     animation-duration: 0.5s;
@@ -133,12 +148,28 @@ h3{
     background:#7db9e4;
     padding:8px;
     color: #000;
+    height: 10%;
+    font-size: x-large;
+    text-align: center;
 }
 
 .Bill-Body{
     padding:  10px 20px;
+    height: 75%;
     
 }
+#Bill-Footer{
+    background-color: #7db9e4;
+    padding: 8px;
+    color: #000;
+    text-align: center;
+
+}
+.Bill-Btn{
+    font-size: medium;
+    
+}
+
 .closeBtn{
     color:#8c8888;
     float:right;
@@ -151,9 +182,28 @@ h3{
     cursor:pointer;
 }
 
+
+
+
+
 /* //keyframe */
 @keyframes modalopen{
     from{opacity: 0;}
     to{opacity: 1;}
 }
+.popTable{
+    width: 100%;
+}
+/* .sNo{
+    width: 20%;
+}
+.popItem{
+    width: 60%;
+}
+.popPrice{
+    width:60%;
+} */
 
+td, th{
+    text-align: left;
+}
