@@ -481,6 +481,9 @@ const change=(e,t_id,namePop)=>{
 
     totalPrice.innerHTML = `Rs. ${tables[t_id-1].amount} |`;
     totaltblItems.innerHTML = `Total Items: ${tables[t_id-1].itemCount}`;
+    
+    
+    updatePopTotalAmt(t_id);
 
     
 }
@@ -496,7 +499,7 @@ const itemRemove = (e,t_id,r_id,menuItem) => {
     tables[t_id-1].itemList[menuItem].count=0;
     tables[t_id-1].itemList[menuItem].price=0;
     // tables[t_id-1].itemList[menuItem].remove();
-
+    delete tables[t_id-1].itemList[menuItem];
     // console.log("menu: "+ tables[t_id-1].itemList[menuItem] )
 
     // const table = document.getElementById('popTable');
@@ -517,6 +520,7 @@ const itemRemove = (e,t_id,r_id,menuItem) => {
 
     // popupBill(t_id);
     updateTableUI(t_id);
+    updatePopTotalAmt(t_id);
             
 }
 
@@ -538,12 +542,7 @@ const generateBill=(e, t_id)=>{
     const grndtotal= document.getElementById('grandTotal').innerHTML;
     alert("Your Total Bill is: "+ grndtotal);
 
-    // setting the itemList of that table with free array
-    tables[t_id-1].itemList={};
-    document.getElementById(`priceT${t_id}`).innerHTML=`Rs. 0 |`;
-    document.getElementById(`TotalItems${t_id}`).innerHTML=`Total Items: 0`;
-    // calling updateBill function
-    // popupBill(t_id);
+    
 }
 
 
