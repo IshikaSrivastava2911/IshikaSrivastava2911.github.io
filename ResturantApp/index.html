@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Resturant App</title>
+        <link href="./rest.css" rel="stylesheet">
+        <!-- for the delete icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body class="body" onload="tableDisplay();menuDisplay();">
+        <section class="table">
+            <h3 >Table</h3>
+            <input type="text" class="table-search" id="table-search" placeholder="Search Table" onkeyup="tableSearch()">
+            <div class="table-list" id="table-list">
+                
+            </div>
+        </section>
+
+        <section class="menu">
+            <h3>Menu</h3>
+            <input type="text" class="menu-search" id="menu-search" placeholder="Search from Menu" onkeyup="menuSearch()">
+            <div class="scroll">
+            <div class="menu-list" id="menu-list">
+                <!-- <div class="item firstItem">
+                    <p>French Fries</p>
+                    <span class="item-price">
+                        Rs. 100
+                    </span>
+                    <span class="item-cate">
+                        Starters
+                    </span>
+                </div>
+                <div class="item secondItem">
+                    <p>Paneer butter Masala</p>
+                    <span class="item-price">
+                        Rs. 250
+                    </span>
+                    <span class="item-cate">
+                        Main Course
+                    </span>
+                </div>
+                <div class="item thirdItem">
+                    <p>Mojito</p>
+                    <span class="item-price">
+                        Rs. 150
+                    </span>
+                    <span class="item-cate">
+                        Beverages
+                    </span>
+                </div>
+                <div class="item fourthItem">
+                    <p>Mac-n-cheese</p>
+                    <span class="item-price">
+                        Rs. 200
+                    </span>
+                    <span class="item-cate">
+                        Starters
+                    </span>
+                </div>
+                <div class="item fifthItem">
+                    <p>Pizza</p>
+                    <span class="item-price">
+                        Rs. 300
+                    </span>
+                    <span class="item-cate">
+                        Starters
+                    </span>
+                </div>
+                <div class="item sixthItem">
+                    <p>Chilli Paneer</p>
+                    <span class="item-price">
+                        Rs. 240
+                    </span>
+                    <span class="item-cate">
+                        Main Course
+                    </span>
+                </div>
+                <div class="item seventhItem">
+                    <p>Orange juice</p>
+                    <span class="item-price">
+                        Rs. 80
+                    </span>
+                    <span class="item-cate">
+                        Beverages
+                    </span>
+                </div>
+                <div class="item eighthItem">
+                    <p>Manchurian</p>
+                    <span class="item-price">
+                        Rs. 180
+                    </span>
+                    <span class="item-cate">
+                        Main Course
+                    </span>
+                </div>
+                <div class="item ninthItem">
+                    <p>Maggie</p>
+                    <span class="item-price">
+                        Rs. 70
+                    </span>
+                    <span class="item-cate">
+                        Starters
+                    </span>
+                </div>
+                <div class="item tenthItem">
+                    <p>Burger</p>
+                    <span class="item-price">
+                        Rs. 70
+                    </span>
+                    <span class="item-cate">
+                        Starters
+                    </span>
+                </div>
+
+            </div> -->
+        </div>
+        </section>
+        <div id="BillingPop" class="BillingPop">
+            <div class="BillingItem">
+                <div class="Bill-Header">
+                    <span class="closeBtn" id="closeBtn">&times;</span>
+                    <h4>Order Details <span id="tableHeaderName"></span></h4>
+                </div>
+                <div class="Bill-Body">
+                    <table class="popTable" id="popTable">
+                        
+                        
+                    </table>
+            
+                </div>
+                <div id="Bill-Footer">
+                    <span class="grandTotal" id="grandTotal"></span>
+                    <button class="Bill-Btn" id="Bill-btn" >Generate Bill</button>    
+                </div>
+                
+            </div>
+        </div>
+
+
+        <script src="rest.js">
+
+        </script>
+
+    </body>
+</html>

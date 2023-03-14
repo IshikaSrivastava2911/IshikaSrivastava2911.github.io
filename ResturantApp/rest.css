@@ -1,0 +1,209 @@
+.body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.table{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+
+    /* background-color: rgb(183, 237, 219); */
+    width:25%;
+    height: 160vh;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    /* background-color: rgb(167, 167, 236); */
+    width:100% ;
+    height: 160vh;
+}
+h3{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+}
+.table-search{
+    margin-bottom: 1%;
+    margin-left:2%;
+    width: 15vw;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.menu-search{
+    margin-left:2%;
+    
+    width: 30vw;
+    /* margin-bottom: 1%; */
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.table-list{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
+    width: 95%;
+    height: 90%;
+    padding-left: 1%;
+    padding-top: 1%;
+
+}
+.eachtable{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    /* align-items: center; */
+    
+    gap: 5px;
+    font-size: larger;
+    padding-left: 1%;
+    /* padding-top: 1%; */
+    /* background-color: rgb(247, 247, 205); */
+    width: 100%;
+    height: 12%;
+    /* border: 0.5px  grey; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+@media screen and (max-width:500px) {
+    .eachtable{
+        height: 15%;
+    }
+    
+}
+
+
+.total, .price{
+    font-size: medium;
+}
+.menu-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+    width: 95%;
+    height: 90%;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+.item{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: rgb(247, 247, 205); */
+    width: 98%;
+    height: 100%;
+    margin-left: 1%;
+    margin-right:1%;
+    font-size: larger;
+    padding-left: 1%;
+    padding-top: 0.5%;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+.bottom{
+    font-size: small;
+    width: 100%;
+
+}
+.item-price, .item-cate{
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+
+/* pop background */
+.BillingPop{
+    display:none;
+    position: fixed;
+    z-index: 1;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.BillingItem{
+    background-color: #f4f4f4;
+    margin: 10% auto;
+    /* padding: 20px; */
+    width: 50%;
+    height: 50%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.5s;
+}
+.Bill-Header h4{
+    margin: 0;
+}
+.Bill-Header{
+    background:#7db9e4;
+    padding:8px;
+    color: #000;
+    height: 10%;
+    font-size: x-large;
+    text-align: center;
+}
+
+.Bill-Body{
+    padding:  10px 20px;
+    height: 75%;
+    
+}
+#Bill-Footer{
+    background-color: #7db9e4;
+    padding: 8px;
+    color: #000;
+    text-align: center;
+
+}
+.Bill-Btn{
+    font-size: medium;
+    
+}
+
+.closeBtn{
+    color:#8c8888;
+    float:right;
+    font-size:30px;
+
+}
+.closeBtn:hover, .closeBtn:focus{
+    color:#000;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+
+
+
+
+/* //keyframe */
+@keyframes modalopen{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.popTable{
+    width: 100%;
+}
+/* .sNo{
+    width: 20%;
+}
+.popItem{
+    width: 60%;
+}
+.popPrice{
+    width:60%;
+} */
+
+td, th{
+    text-align: left;
+}
