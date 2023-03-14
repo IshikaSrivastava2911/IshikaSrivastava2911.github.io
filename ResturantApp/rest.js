@@ -451,7 +451,7 @@ const popupBill =(t_id) => {
     // itemAddedinTable(t_id);
     const billBtn = document.getElementById('Bill-btn');
     billBtn.addEventListener('click', (event)=>{
-        generateBill(event);
+        generateBill(event,t_id);
 
     });
 
@@ -514,6 +514,7 @@ const itemRemove = (e,t_id,r_id) => {
         // console.log(tables[t_id-1].itemList);
     const tableItemList= tables[t_id-1].itemList;
     
+    
 
     const _id = e.target.parentNode.id.slice(3);
     const _itemName = e.target.parentNode.dataset.item;
@@ -551,6 +552,7 @@ const itemRemove = (e,t_id,r_id) => {
     row.innerHTML = "";
 
     // //here if I call popupBill then new bill should displayes?
+    // closeBill();
     popupBill(t_id);
     
     //to update the Table UI
@@ -581,11 +583,26 @@ const itemRemove = (e,t_id,r_id) => {
 
 
 
-const generateBill=(e)=>{
+const generateBill=(e,t_id)=>{
     const grndtotal= document.getElementById('grandTotal').innerHTML;
     alert("Your Total Bill is: "+ grndtotal);
 
+    tables[t_id-1].itemList ={};
+    // tableItemList={};
+    tables[t_id-1].amount =0;
+    tables[t_id-1].itemCount=0;
+
+    let totalPrice = document.querySelector(`#priceT${t_id}`);
     
+    let totaltblItems = document.querySelector(`#TotalItems${t_id}`);
+
+    totalPrice.innerHTML = `Rs. 0 |`;
+    totaltblItems.innerHTML = `Total Items: 0`;
+
+    closeBill();
+    // popupBill(t_id);
+    updateTableUI(t_id);
+    // updatePopTotalAmt(t_id);
 }
 
 
