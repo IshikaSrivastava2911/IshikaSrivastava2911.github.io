@@ -450,9 +450,10 @@ const popupBill =(t_id) => {
 
     // itemAddedinTable(t_id);
     const billBtn = document.getElementById('Bill-btn');
-        billBtn.addEventListener('click', (event)=>{
-            generateBill(event,t_id);
-        });
+    billBtn.addEventListener('click', (event)=>{
+        generateBill(event);
+
+    });
 
     
 }
@@ -519,7 +520,7 @@ const itemRemove = (e,t_id,r_id) => {
 
     tables[t_id-1].amount -=tableItemList[_itemName].price*tableItemList[_itemName].count;
     tables[t_id-1].itemCount -=tableItemList[_itemName].count;
-
+// [object Object]
     console.log(tableItemList[_itemName]);
     // console.log("before"+tableItemList);
     delete tableItemList[_itemName];
@@ -580,7 +581,7 @@ const itemRemove = (e,t_id,r_id) => {
 
 
 
-const generateBill=(e, t_id)=>{
+const generateBill=(e)=>{
     const grndtotal= document.getElementById('grandTotal').innerHTML;
     alert("Your Total Bill is: "+ grndtotal);
 
