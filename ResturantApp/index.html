@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Resturant App</title>
         <link href="./rest.css" rel="stylesheet">
+        <!-- for the delete icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body class="body" onload="tableDisplay();menuDisplay();">
         <section class="table">
@@ -118,16 +120,11 @@
             <div class="BillingItem">
                 <div class="Bill-Header">
                     <span class="closeBtn" id="closeBtn">&times;</span>
-                    <h4>Order Details</h4>
+                    <h4>Order Details <span id="tableHeaderName"></span></h4>
                 </div>
                 <div class="Bill-Body">
-                    <table border="1" class="popTable" id="popTable">
-                        <tr >
-                            <th>S No.</th>
-                            <th>Item</th>
-                            <th>Price</th>
-                            <!-- <th>Delete</th> -->
-                        </tr>
+                    <table class="popTable" id="popTable">
+                        
                         
                     </table>
             

@@ -182,6 +182,10 @@ h3{
     cursor:pointer;
 }
 
+
+
+
+
 /* //keyframe */
 @keyframes modalopen{
     from{opacity: 0;}
@@ -190,7 +194,7 @@ h3{
 .popTable{
     width: 100%;
 }
-.sNo{
+/* .sNo{
     width: 20%;
 }
 .popItem{
@@ -198,4 +202,8 @@ h3{
 }
 .popPrice{
     width:60%;
+} */
+
+td, th{
+    text-align: left;
 }
