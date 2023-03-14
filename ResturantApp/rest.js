@@ -252,6 +252,7 @@ const drop =(e)=>{
 const addMenuItemOnTable =(t_id, name, price)=>{
     let itemExists =false;
     //check if menu-item already exists
+    // console.log(tables[t_id-1].itemList);
     if (`${name}` in tables[t_id-1].itemList){
         itemExists=true;
     }
@@ -331,7 +332,7 @@ const clickOutside=(e)=>{
         modal.style.display='none';
     }
     let updtID= e.target.id;
-    console.log(updtID);
+    // console.log(updtID);
     // deletePopTab(updtID);
 }
 
@@ -384,6 +385,7 @@ const popupBill =(t_id) => {
 
             const td2 = document.createElement('td');
             td2.innerHTML = `${namePop}`;
+            // td2.id=`name-${itemNum}`;
             tr1.appendChild(td2);
 
             const td3 = document.createElement('td');
@@ -396,6 +398,7 @@ const popupBill =(t_id) => {
             ipt.setAttribute("type","number");
             ipt.setAttribute("min",1);
             ipt.setAttribute("max",6);
+            ipt.value=countPop;
             // ipt.min=1;
             // ipt.max=6;
             ipt.setAttribute("id","popup-item-change");
@@ -409,22 +412,37 @@ const popupBill =(t_id) => {
             tr1.appendChild(td4); //appended in table row
 
             const td5 = document.createElement('td');
-            td5.innerHTML=`<button class="btn" id="btn"><i class="fa fa-trash"></i></button>`;
+            // td5.innerHTML=`<button class="btn" id="btn"><i class="fa fa-trash"></i></button>`;
+            const btn = document.createElement('button');
+            btn.innerHTML=`<i class="fa fa-trash"></i>`;
+            btn.setAttribute("class","btn");
+            btn.setAttribute("id",`btn${i+1}`);
+            btn.setAttribute("data-item",namePop);
+            btn.addEventListener('click',(event)=>{
+                // console.log(event);
+                itemRemove(event,t_id,`row-${itemNum}`);
+               
+                // delete tables[t_id-1].itemList[namePop];
+                // console.log("after"+tables[t_id-1].itemList.keys());
+            });
+            td5.appendChild(btn);
+            
             tr1.appendChild(td5);
+            
 
             document.getElementById('popTable').appendChild(tr1);
 
-            const firstchild = td5.parentNode.firstChild.innerHTML;
-            console.log("first:"+ firstchild);
+            // const firstchild = td5.parentNode.firstChild.innerHTML;
+            // console.log("first:"+ firstchild);
+
+            // document.getElementById("btn").addEventListener('click',(event)=>{
+            //     itemRemove(event,t_id,`row-${firstchild}`);
+            // })
 
             let tBillPrice = document.querySelector(`#priceT${t_id}`).innerHTML; 
 
             document.getElementById('grandTotal').innerHTML= `Total Bill: ${tBillPrice}`;
 
-            document.getElementById("btn").addEventListener('click',(event)=>{
-                itemRemove(event,t_id,`row-${firstchild}`, namePop);
-            })
-        
             // <td><button class="itemRemove" onclick="itemRemove(${t_id},${i})">&times;</button></td>
         }
         
@@ -488,23 +506,47 @@ const change=(e,t_id,namePop)=>{
     
 }
 
-const itemRemove = (e,t_id,r_id,menuItem) => {
-     
-    console.log(r_id);
-    tables[t_id-1].amount -=tables[t_id-1].itemList[menuItem].price*tables[t_id-1].itemList[menuItem].count;
-    tables[t_id-1].itemCount -=tables[t_id-1].itemList[menuItem].count;
-    
-    //after removing the price and amount from total, remove the item from that table's object
-    tables[t_id-1].itemList[menuItem].name="";
-    tables[t_id-1].itemList[menuItem].count=0;
-    tables[t_id-1].itemList[menuItem].price=0;
-    // tables[t_id-1].itemList[menuItem].remove();
-    delete tables[t_id-1].itemList[menuItem];
-    // console.log("menu: "+ tables[t_id-1].itemList[menuItem] )
+const itemRemove = (e,t_id,r_id) => {
 
-    // const table = document.getElementById('popTable');
+        // console.log(tables)
+        // console.log(tables[t_id-1]);
+        // console.log(tables[t_id-1].itemList);
+    const tableItemList= tables[t_id-1].itemList;
+    
+
+    const _id = e.target.parentNode.id.slice(3);
+    const _itemName = e.target.parentNode.dataset.item;
+
+    tables[t_id-1].amount -=tableItemList[_itemName].price*tableItemList[_itemName].count;
+    tables[t_id-1].itemCount -=tableItemList[_itemName].count;
+
+    console.log(tableItemList[_itemName]);
+    // console.log("before"+tableItemList);
+    delete tableItemList[_itemName];
+    console.log(tableItemList);
+    
+    // console.log(_id);
+    // console.log(t_id);
+    // console.log(e);
+    
+    // console.log(_itemName);
+
+    
+
+    
+    
+    // after removing the price and amount from total, remove the item from that table's object
+    // tables[t_id-1].itemList[_itemName].name="";
+    // tables[t_id-1].itemList[_itemName].count=0;
+    // tables[t_id-1].itemList[_itemName].price=0;
+    // delete tables[t_id-1].itemList[_itemName];
+    // tables[t_id-1].itemList[_itemName].remove();
+    // console.log("after"+tables[t_id-1].itemList[_itemName]);
+    
+
+    // // const table = document.getElementById('popTable');
     //empty the row UI
-    const row= document.getElementById(r_id);
+    const row= document.getElementById(`row-${_id}`);
     row.innerHTML = "";
 
     // //here if I call popupBill then new bill should displayes?
