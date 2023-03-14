@@ -349,7 +349,10 @@ window.addEventListener('click', (event)=>{clickOutside(event)});
 const popupBill =(t_id) => {
     // console.log("bill printing");
     const tableNameonHeader = document.getElementById('tableHeaderName');
+    // tableNameonHeader.setAttribute("class",`${t_id}`);
     tableNameonHeader.innerText = `| Table-${t_id}`;
+
+    
 
     let itemNum=1;
     const keys = Object.keys(tables[t_id-1].itemList);
@@ -449,14 +452,17 @@ const popupBill =(t_id) => {
     }
 
     // itemAddedinTable(t_id);
-    const billBtn = document.getElementById('Bill-btn');
-    billBtn.addEventListener('click', (event)=>{
-        generateBill(event,t_id);
-
-    });
+    const footer = document.getElementById('Bill-Footer');
+    footer.className = `${t_id}`;
 
     
 }
+
+const billBtn = document.getElementById('Bill-btn');
+    billBtn.addEventListener('click', (event)=>{
+        generateBill(event);
+
+});
 
 const updatePopTotalAmt=(t_id)=>{
     let tBillPrice = document.querySelector(`#priceT${t_id}`).innerHTML; 
@@ -583,9 +589,12 @@ const itemRemove = (e,t_id,r_id) => {
 
 
 
-const generateBill=(e,t_id)=>{
+const generateBill=(e)=>{
+    const t_id = e.target.parentNode.className;
+    console.log(t_id);
     const grndtotal= document.getElementById('grandTotal').innerHTML;
     alert("Your Total Bill is: "+ grndtotal);
+    console.log("called");
 
     tables[t_id-1].itemList ={};
     // tableItemList={};
